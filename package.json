@@ -1,0 +1,29 @@
+{
+  "name": "reactcharts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.1",
+    "chart.js": "^2.6.0",
+    "react": "^15.6.1",
+    "react-bootstrap": "^1.6.1",
+    "react-chartjs-2": "^2.1.0",
+    "react-dom": "^15.7.0",
+    "react-router-dom": "^5.2.0",
+    "startbootstrap-simple-sidebar": "^6.0.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "Its front end for chart app",
+  "main": "index.js",
+  "author": "pramod yewale",
+  "license": "ISC"
+}
