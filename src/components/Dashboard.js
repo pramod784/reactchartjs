@@ -16,12 +16,32 @@ class Dashboard extends Component{
     legendPosition:'right',
     location:'City'
   }
-
+  handleChange(e) {
+    console.log("City Selected!!",e.target.value);
+    let lable_index = this.state.chartData.labels.indexOf(e.target.value)
+    
+    let new_state = {
+      labels:[],
+      datasets:[{ 
+        label:"",
+        data:[],
+        backgroundColor:[],
+      }]
+    }
+    new_state.labels.push(this.state.chartData.labels[lable_index]);
+    new_state.datasets[0].label = this.state.chartData.labels[lable_index];
+    new_state.datasets[0].data.push(this.state.chartData.datasets[0].data[lable_index]);
+    new_state.datasets[0].backgroundColor.push(this.state.chartData.datasets[0].backgroundColor[lable_index]);
+   
+    console.log("lable_index => ",new_state)
+    
+    this.setState({ chartData: new_state });
+  }
   render(){
     return (
       <div>
         <div className="topnav">
-          <a href="javascript:void(0)">Welcome, Pramod</a>
+          <a href="href-no-hash">Welcome, Pramod</a>
           <a href="/dashboard">Home</a>
           <div className="topnav-right">
             <a href="/">Logout</a>
@@ -107,11 +127,11 @@ class Dashboard extends Component{
             </div>
             <div className="row">
               <div className="mb-3">
-                <select className="form-select" aria-label="Default select example">
+                <select className="form-select" aria-label="Default select example" onChange={(e) => {this.handleChange(e)}}>
                   <option>Select City</option>
                   {
-                    this.state.chartData.labels.map((data,index) =>{
-                      <option value={data} key={index}>{data}</option>
+                    this.state.chartData.labels.map( (data,index)=>{
+                      return <option value={data} key={index}>{data}</option>;    
                     })
                   }
                 </select>
